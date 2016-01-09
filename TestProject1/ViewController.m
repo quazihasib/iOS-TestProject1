@@ -41,8 +41,26 @@ void getData()
                                                            error:&error];
     
     
-    //NSArray* latestLoan = [json objectForKey:@"loans"];
-    NSLog(@"mmm:%@",json);
+    NSArray* latestLoan = [json objectForKey:@"result"];
+    //NSLog(@"mmm:%@",json);
+    //NSLog(@"id:%@",[latestLoan valueForKey:@"id"]);
+    //NSLog(@"name:%@", [latestLoan valueForKey:@"name"]);
+    //NSLog(@"result:%@",latestLoan);
+    
+//    NSMutableArray *array = [NSMutableArray arrayWithObjects:a,nil];
+    NSMutableArray *array;
+    for (NSDictionary *dic in latestLoan){
+        // Now you have dictionary get value for key
+        NSString *firstName = (NSString*) [dic valueForKey:@"name"];
+        array = [NSMutableArray arrayWithObjects:firstName,nil];
+        NSLog(@"firstName:%@",firstName);
+    }
+    NSLog(@"TheText = %@", array);
+//    for (id obj in array)
+//    {
+//        NSLog(@"obj: %@", obj);
+//    }
+
 }
 
 
